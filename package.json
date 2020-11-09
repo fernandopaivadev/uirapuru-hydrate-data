@@ -1,0 +1,58 @@
+{
+    "name": "uirapuru-hydrate-data",
+    "version": "0.0.0",
+    "description": "API for the Tech Amazon Uirapuru Platform",
+    "license": "ISC",
+    "private": true,
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run test && npm run build && git add . && lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.js": [
+            "eslint --fix"
+        ],
+        "__tests__/**/*.test.js": [
+            "eslint --fix"
+        ]
+    },
+    "scripts": {
+        "dev": "npx nodemon --exec babel-node ./src/main.js",
+        "update": "ncu -u && npm install",
+        "test": "jest",
+        "lint": "eslint --fix src/",
+        "build": "rm -rf dist && babel src --out-dir dist",
+        "start": "npm run build && node dist/main.js"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.11.6",
+        "@babel/core": "^7.11.6",
+        "@babel/node": "^7.10.5",
+        "@babel/preset-env": "^7.11.5",
+        "@commitlint/cli": "^9.1.2",
+        "@commitlint/config-conventional": "^9.1.2",
+        "babel-eslint": "^10.1.0",
+        "commitizen": "^4.2.1",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^7.8.1",
+        "eslint-config-node": "^4.1.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-node": "^11.1.0",
+        "husky": "^4.3.0",
+        "jest": "^26.4.2",
+        "lint-staged": "^10.3.0",
+        "npm-check-updates": "^9.0.1"
+    },
+    "dependencies": {},
+    "engines": {
+        "node": "12.x"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
