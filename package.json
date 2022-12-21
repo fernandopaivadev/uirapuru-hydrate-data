@@ -41,7 +41,7 @@
         "eslint-config-node": "^4.1.0",
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-node": "^11.1.0",
-        "husky": "^4.3.0",
+        "husky": "^4.3.8",
         "jest": "^26.4.2",
         "lint-staged": "^10.3.0",
         "npm-check-updates": "^9.0.1"
